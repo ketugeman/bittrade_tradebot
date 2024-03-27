@@ -1,3 +1,9 @@
+# step1:アカウントIDを取得する
+BitTradeのAPIで取引を行うにはAPIキー、シークレットキー以外に【アカウントID】が必要になります。    
+以下のコードをコピペしてAPIキーとシークレットキーを入力することでアカウントIDが取得できます。
+
+
+```py
 from datetime import datetime
 import requests
 import json
@@ -34,11 +40,21 @@ def get_account_id(api_key, secret_key):
         return None
 
 # あなたのAPIキーと秘密鍵を使用してアカウントIDを取得
-api_key = '2e2348b0-xa2b53ggfc-d45cde66-a932c'
-secret_key = '8230f04f-23b093aa-f650e9fc-bc767'
+api_key = '※※※'
+secret_key = '※※※'
 account_id = get_account_id(api_key, secret_key)
 
 if account_id is not None:
     print(f'アカウントID: {account_id}')
 else:
     print('アカウントIDの取得に失敗しました。')
+```
+
+上記のコード内の※※※となっている箇所にBitTradeのHPで取得したAPIキーとシークレットキーをそれぞれ代入してください。  
+実行すると、
+```
+アカウントID：※※※
+```
+の形式でアカウントIDが表示されます。
+アカウントIDは自動売買botを利用する際は共通で必要になるので、メモしておきましょう。  
+このコードは以降の取引を実行する内容には一切使わないので混合しないようにしてください。
